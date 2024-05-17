@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernize Free</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    .action-btn.show-btn {
+      display: none
+    }
+
+    .paginate_button.current {
+      background: #5D87FF !important;
+      border: 1px solid #5D87FF !important;
+      border-radius: 50% !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+      color: white !important;
+      background: #5D87FF !important;
+      border: 1px solid #5D87FF !important;
+      border-radius: 50% !important;
+      text-decoration: none !important;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+    .paginate_button:hover {
+      text-decoration: underline !important;
+      color: black !important;
+      background: white !important;
+      border: none !important;
+      font-weight: 500 !important;
+      cursor: pointer !important;
+    }
+
+    select[name="example_length"] {
+      padding: 5px !important;
+      border: 1px solid #ecf1f6 !important;
+      margin-left: 5px !important;
+      margin-right: 5px !important;
+      color: #9499a7 !important;
+      margin-bottom: 10px !important;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #ffffff;
+      min-width: 120px;
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      bottom: 100%;
+      border-radius: 10px;
+      right: 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: #85848b;
+      padding: 9px 16px;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid #e7e7e7;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #f6f6f6;
+    }
+  </style>
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="./dashboard.html" class="text-nowrap logo-img">
+            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./dashboard.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-layout-dashboard"></i>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./users.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-users"></i>
+                </span>
+                <span class="hide-menu">User List</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./themes.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">Themes</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./add-user.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user-plus"></i>
+                </span>
+                <span class="hide-menu">Add User</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./add-bulk-users.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user-plus"></i>
+                </span>
+                <span class="hide-menu">Add Bulk Users</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Analytics</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./by-user.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user"></i>
+                </span>
+                <span class="hide-menu">By User</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./by-article.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                <span class="hide-menu">By Content</span>
+              </a>
+            </li>
+          
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Edit</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./edit-theme.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-file-pencil"></i>
+                </span>
+                <span class="hide-menu">Edit Theme</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="./manage-links.html" aria-expanded="false">
+                <span>
+                  <i class="ti ti-edit"></i>
+                </span>
+                <span class="hide-menu">Edit Links</span>
+              </a>
+            </li>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    
+                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="widget-content searchable-container list">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col-md-4 col-xl-3">
+                <form class="position-relative">
+                  <input type="text" class="form-control product-search ps-5" id="input-search"
+                    placeholder="Search Contacts..." />
+                  <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
+                </form>
+              </div>
+              <div class="col-md-8 col-xl-9 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
+                <a href="./add-bulk-users.html" id="btn-add-contact" class="btn btn-primary d-flex align-items-center">
+                  <i class="ti ti-users text-white me-1 fs-5"></i> Add Bulk Users
+                </a>
+                <a href="./add-user.html" id="btn-add-contact" class="btn btn-primary d-flex align-items-center"
+                  style="margin-left: 5px !important;">
+                  <i class="ti ti-users text-white me-1 fs-5"></i> Add User
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="EditUserModal" tabindex="-1" role="dialog" aria-labelledby="EditUserModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header d-flex align-items-center">
+                  <h5 class="modal-title">Edit User</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="add-contact-box">
+                    <div class="add-contact-content">
+                      <form id="EditUserModalTitle">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="mb-3 contact-name">
+                              <input type="text" class="form-control" placeholder="Name" />
+                              <span class="validation-text text-danger"></span>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3 contact-name">
+                              <input type="text" class="form-control" placeholder="Last Name" />
+                              <span class="validation-text text-danger"></span>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3 contact-email">
+                              <input type="text" class="form-control" placeholder="Email" />
+                              <span class="validation-text text-danger"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <input type="text" class="form-control" name="position" placeholder="Position">
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <input type="text" class="form-control" placeholder="Office Number" />
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="mb-3">
+                              <input type="text" id="c-phone" class="form-control" placeholder="Phone Number" />
+                              <span class="validation-text text-danger"></span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <input type="text" class="form-control" placeholder="Comapany" />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <input type="text" class="form-control" placeholder="Address" />
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <label>
+                                <input type="checkbox" class="form-check-input">
+                                Use Whatsapp
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="mb-3">
+                              <label>
+                                <input type="checkbox" class="form-check-input">
+                                Make User Admin
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="d-flex gap-6 m-0">
+                    <button class="btn btn-success">Save</button>
+                    <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"> Discard
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="EditSocialModal" tabindex="-1" role="dialog"
+            aria-labelledby="EditSocialModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header d-flex align-items-center">
+                  <h5 class="modal-title">Edit Social</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <div class="add-contact-box">
+                    <div class="add-contact-content">
+                      <form id="EditSocialModalTitle">
+                        <div id="socialRows">
+                          <div class="row socialform">
+                            <div class="col-md-5">
+                              <div class="mb-3 contact-name">
+                                <select class="form-select">
+                                  <option value="">---------</option>
+                                  <option value="1" selected="">Linkedin</option>
+                                  <option value="2">Instagram</option>
+                                  <option value="3">Facebook</option>
+                                  <option value="4">TikTok</option>
+                                  <option value="5">Spotify</option>
+                                  <option value="6">Twitter</option>
+                                  <option value="7">Reddit</option>
+                                  <option value="8">Youtube</option>
+                                  <option value="10">SoundCloud</option>
+                                  <option value="11">Apple Music</option>
+                                  <option value="12">Behance</option>
+                                  <option value="13">Pinterest</option>
+                                  <option value="14">Dribbble</option>
+                                  <option value="15">Imdb</option>
+                                  <option value="16">Goodreads</option>
+                                  <option value="17">Medium</option>
+                                  <option value="18">Tumblr</option>
+                                  <option value="19">Myspace</option>
+                                  <option value="20">Foursquare</option>
+                                  <option value="21">Snapchat</option>
+                                  <option value="22">Twitch</option>
+                                  <option value="23">Yelp</option>
+                                  <option value="24">Discord</option>
+                                  <option value="25">spect</option>
+                                  <option value="26">BeReal</option>
+                                  <option value="27">WeChat</option>
+                                  <option value="28">LINE</option>
+                                  <option value="29">Zoom</option>
+                                  <option value="30">Skype</option>
+                                  <option value="31">Telegram</option>
+                                  <option value="32">QQ</option>
+                                  <option value="33">StreetEasy</option>
+                                  <option value="34">Corporate</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="col-md-5">
+                              <div class="mb-3 contact-name">
+                                <input type="text" class="form-control" placeholder="Enter the profile link" />
+                                <span class="validation-text text-danger"></span>
+                              </div>
+                            </div>
+                            <div class="col-md-2">
+                              <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                      <button id="addMoreSocial" class="btn btn-primary">Add More Social</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <div class="d-flex gap-6 m-0">
+                    <button class="btn btn-success">Save</button>
+                    <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"> Discard
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="DeleteValidate" tabindex="-1" role="dialog"
+            aria-labelledby="DeleteValidateTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header d-flex align-items-center">
+                  <h5 class="modal-title">Are you sure you want to delete?</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-footer">
+                  <div class="d-flex gap-6 m-0">
+                    <button class="btn btn-success">Yes</button>
+                    <button class="btn bg-danger-subtle text-danger" data-bs-dismiss="modal"> Discard
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card-body">
+            <div class="table-responsive">
+              <table class="table search-table align-middle text-nowrap" id="example">
+                <thead class="header-item">
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Position</th>
+                  <th>Team</th>
+                  <th>Page Views in last month</th>
+                  <th>Action</th>
+                </thead>
+                <tbody>
+                  <!-- start row -->
+                  <tr class="search-items">
+
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/images/profile/user-1.jpg" alt="avatar" class="rounded-circle" width="35" />
+                        <div class="ms-3">
+                          <div class="user-meta-info">
+                            <h6 class="user-name mb-0" data-name="Emma Adams">Emma Adams</h6>
+                            <span class="user-work fs-3" data-occupation="Web Developer">Web Developer</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="usr-email-addr" data-email="adams@mail.com">adams@mail.com</span>
+                    </td>
+                    <td>
+                      <span class="usr-location" data-location="Boston, USA">Boston, USA</span>
+                    </td>
+                    <td>
+                      <span class="usr-location" data-location="Boston, USA">Boston, USA</span>
+                    </td>
+                    <td>
+                      <span class="usr-ph-no" style="text-align: center; display: block;">91</span>
+                    </td>
+                    <td>
+                      <div class="action-btn">
+                        <a href="javascript:void(0)" class="text-primary edit-profile" style="margin-right:10px;">
+                          <i class="ti ti-eye fs-5"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary edit-social">
+                          <i class="ti ti-link fs-5"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-danger delete-user ms-2">
+                          <i class="ti ti-trash fs-5"></i>
+                        </a>
+                        <div class="dropdown">
+                          <a href="#" class="text-info ms-2">
+                            <i class="ti ti-download fs-5"></i>
+                          </a>
+                          <div class="dropdown-content">
+                            <a href="#">Download QR Wallpaper</a>
+                            <a href="#">Download Email Signature</a>
+                            <a href="#">Download QR</a>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- end row -->
+                  <!-- start row -->
+                  <tr class="search-items">
+
+                    <td>
+                      <div class="d-flex align-items-center">
+                        <img src="../assets/images/profile/user-1.jpg" alt="avatar" class="rounded-circle" width="35" />
+                        <div class="ms-3">
+                          <div class="user-meta-info">
+                            <h6 class="user-name mb-0" data-name="Emma Adams">Emma Adams</h6>
+                            <span class="user-work fs-3" data-occupation="Web Developer">Web Developer</span>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <span class="usr-email-addr" data-email="adams@mail.com">adams@mail.com</span>
+                    </td>
+                    <td>
+                      <span class="usr-location" data-location="Boston, USA">Boston, USA</span>
+                    </td>
+                    <td>
+                      <span class="usr-location" data-location="Boston, USA">Boston, USA</span>
+                    </td>
+                    <td>
+                      <span class="usr-ph-no" style="text-align: center; display: block;">91</span>
+                    </td>
+                    <td>
+                      <div class="action-btn">
+                        <a href="javascript:void(0)" class="text-primary edit-profile" style="margin-right:10px;">
+                          <i class="ti ti-eye fs-5"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-secondary edit-social">
+                          <i class="ti ti-link fs-5"></i>
+                        </a>
+                        <a href="javascript:void(0)" class="text-danger delete-user ms-2">
+                          <i class="ti ti-trash fs-5"></i>
+                        </a>
+                        <div class="dropdown">
+                          <a href="#" class="text-info ms-2">
+                            <i class="ti ti-download fs-5"></i>
+                          </a>
+                          <div class="dropdown-content">
+                            <a href="#">Download QR Wallpaper</a>
+                            <a href="#">Download Email Signature</a>
+                            <a href="#">Download QR</a>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <!-- end row -->
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+  <script>
+
+    $(document).ready(function () {
+      $('#addMoreSocial').on('click', function () {
+        // Clone the first row
+        var newRow = $('.socialform').first().clone();
+
+        // Clear the cloned select and input
+        newRow.find('select').val('');
+        newRow.find('input').val('');
+
+        // Show the delete button for the new row
+        newRow.find('.delete-row').removeClass('d-none');
+
+        // Append the cloned row to the specified div
+        $('#socialRows').append(newRow);
+      });
+
+      // Delete row when delete button is clicked
+      $(document).on('click', '.delete-row', function () {
+        // Ensure that at least one row rematbeattins
+        if ($('#socialRows').children('.socialform').length > 1) {
+          $(this).closest('.row').remove();
+        }
+      });
+    });
+
+
+    $(document).ready(function () {
+      var table = $('#example').DataTable({
+        select: false,
+        "searching": false,
+        columnDefs: [{
+          targets: 0,
+          orderable: false
+        }]
+      });//End of create main table
+
+    });
+
+    $(function () {
+      function checkall(clickchk, relChkbox) {
+        var checker = $("#" + clickchk);
+        var multichk = $("." + relChkbox);
+
+        checker.click(function () {
+          multichk.prop("checked", $(this).prop("checked"));
+          $(".show-btn").toggle();
+        });
+      }
+
+      checkall("contact-check-all", "contact-chkbox");
+
+      $("#input-search").on("keyup", function () {
+        var rex = new RegExp($(this).val(), "i");
+        $(".search-table .search-items:not(.header-item)").hide();
+        $(".search-table .search-items:not(.header-item)")
+          .filter(function () {
+            return rex.test($(this).text());
+          })
+          .show();
+      });
+
+
+      function editUser() {
+        $(".edit-profile").on("click", function (event) {
+          $("#EditUserModal").modal("show");
+        });
+      }
+      function editSocial() {
+        $(".edit-social").on("click", function (event) {
+          $("#EditSocialModal").modal("show");
+        });
+      }
+      function deleteUser() {
+        $(".delete-user").on("click", function (event) {
+          $("#DeleteValidate").modal("show");
+        });
+      }
+
+
+      editUser();
+      editSocial();
+      deleteUser();
+    });
+
+
+  </script>
+</body>
+
+</html>
