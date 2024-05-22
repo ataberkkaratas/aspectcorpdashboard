@@ -4,42 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add User</title>
+  <title>Modernize Free</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
-  <style>
-    .input-group-text {
-      width: 45px;
-      justify-content: center;
-    }
-
-    .input-group-text i {
-      font-size: 18px;
-    }
-
-    .mb-3 .form-control,
-    .mb-3 .form-select {
-      height: calc(2.25rem + 2px);
-    }
-
-    .btn-primary {
-      max-width: 100px;
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .text-end {
-      text-align: end;
-    }
-
-    .justify-content-center {
-      justify-content: center;
-    }
-  </style>
-
-  </style>
 </head>
 
 <body>
@@ -125,7 +92,7 @@
                 <span class="hide-menu">By Content</span>
               </a>
             </li>
-
+          
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Edit</span>
@@ -187,7 +154,7 @@
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">My Account</p>
                     </a>
-
+                    
                     <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
@@ -199,133 +166,133 @@
       <!--  Header End -->
       <div class="container-fluid">
         <div class="container-fluid">
-          <h5 class="card-title fw-semibold mb-4 text-center">Add User</h5>
+          <h5 class="card-title fw-semibold mb-4">Add User</h5>
           <div class="card">
             <div class="card-body">
               <form>
-                <div class="row justify-content-center mb-3">
-                  <div class="col-md-6">
-                    <label for="fileToUpload" class="form-label">Profile Picture</label>
-                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="mb-3 contact-name">
+                      <input type="text" class="form-control" placeholder="Name" />
+                      <span class="validation-text text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3 contact-name">
+                      <input type="text" class="form-control" placeholder="Last Name" />
+                      <span class="validation-text text-danger"></span>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="mb-3 contact-email">
+                      <input type="text" class="form-control" placeholder="Email" />
+                      <span class="validation-text text-danger"></span>
+                    </div>
                   </div>
                 </div>
-                <div class="row justify-content-center">
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-user"></i></span>
-                      <input type="text" class="form-control" placeholder="Name" />
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-user"></i></span>
-                      <input type="text" class="form-control" placeholder="Last Name" />
+                  <div class="col-md-6">
+                    <div class="mb-3">
+                      <input type="text" class="form-control"  name="position" placeholder="Position">
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-mail"></i></span>
-                      <input type="text" class="form-control" placeholder="Email" />
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-briefcase"></i></span>
-                      <input type="text" class="form-control" name="position" placeholder="Position">
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-phone"></i></span>
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="mb-3">
                       <input type="text" class="form-control" placeholder="Office Number" />
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-device-mobile"></i></span>
+                  <div class="col-md-6">
+                    <div class="mb-3">
                       <input type="text" id="c-phone" class="form-control" placeholder="Phone Number" />
+                      <span class="validation-text text-danger"></span>
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-building"></i></span>
-                      <input type="text" class="form-control" placeholder="Company" />
+                </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Comapany" />
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="input-group">
-                      <span class="input-group-text"><i class="ti ti-map-pins"></i></span>
+                  <div class="col-md-4">
+                    <div class="mb-3">
                       <input type="text" class="form-control" placeholder="Address" />
                     </div>
                   </div>
-                  <div class="col-md-6 mb-3">
-                    <div class="form-check">
+                  <div class="col-md-4">
+                    <div class="mb-3">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Use Whatsapp</label>
                     </div>
                   </div>
                 </div>
                 <hr>
-                <h5 class="text-center">Add Socials</h5>
+                <h5>Add Socials</h5>
                 <div class="add-social-content"></div>
-                <div id="socialRows">
-                  <div class="row socialform mb-3 justify-content-center">
-                    <div class="col-md-4">
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="ti ti-world"></i></span>
-                        <select class="form-select">
-                          <option value="">---------</option>
-                          <option value="1" selected="">Linkedin</option>
-                          <option value="2">Instagram</option>
-                          <option value="3">Facebook</option>
-                          <option value="4">TikTok</option>
-                          <option value="5">Spotify</option>
-                          <option value="6">Twitter</option>
-                          <option value="7">Reddit</option>
-                          <option value="8">Youtube</option>
-                          <option value="10">SoundCloud</option>
-                          <option value="11">Apple Music</option>
-                          <option value="12">Behance</option>
-                          <option value="13">Pinterest</option>
-                          <option value="14">Dribbble</option>
-                          <option value="15">Imdb</option>
-                          <option value="16">Goodreads</option>
-                          <option value="17">Medium</option>
-                          <option value="18">Tumblr</option>
-                          <option value="19">Myspace</option>
-                          <option value="20">Foursquare</option>
-                          <option value="21">Snapchat</option>
-                          <option value="22">Twitch</option>
-                          <option value="23">Yelp</option>
-                          <option value="24">Discord</option>
-                          <option value="25">spect</option>
-                          <option value="26">BeReal</option>
-                          <option value="27">WeChat</option>
-                          <option value="28">LINE</option>
-                          <option value="29">Zoom</option>
-                          <option value="30">Skype</option>
-                          <option value="31">Telegram</option>
-                          <option value="32">QQ</option>
-                          <option value="33">StreetEasy</option>
-                          <option value="34">Corporate</option>
-                        </select>
+                  <div id="socialRows">
+                    <div class="row socialform" style="margin: 10px 0;">
+                      <div class="col-md-5">
+                        <div class="mb-3 contact-name">
+                          <select class="form-select">
+                            <option value="">---------</option>
+                            <option value="1" selected="">Linkedin</option>
+                            <option value="2">Instagram</option>
+                            <option value="3">Facebook</option>
+                            <option value="4">TikTok</option>
+                            <option value="5">Spotify</option>
+                            <option value="6">Twitter</option>
+                            <option value="7">Reddit</option>
+                            <option value="8">Youtube</option>
+                            <option value="10">SoundCloud</option>
+                            <option value="11">Apple Music</option>
+                            <option value="12">Behance</option>
+                            <option value="13">Pinterest</option>
+                            <option value="14">Dribbble</option>
+                            <option value="15">Imdb</option>
+                            <option value="16">Goodreads</option>
+                            <option value="17">Medium</option>
+                            <option value="18">Tumblr</option>
+                            <option value="19">Myspace</option>
+                            <option value="20">Foursquare</option>
+                            <option value="21">Snapchat</option>
+                            <option value="22">Twitch</option>
+                            <option value="23">Yelp</option>
+                            <option value="24">Discord</option>
+                            <option value="25">spect</option>
+                            <option value="26">BeReal</option>
+                            <option value="27">WeChat</option>
+                            <option value="28">LINE</option>
+                            <option value="29">Zoom</option>
+                            <option value="30">Skype</option>
+                            <option value="31">Telegram</option>
+                            <option value="32">QQ</option>
+                            <option value="33">StreetEasy</option>
+                            <option value="34">Corporate</option>
+                          </select>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="input-group">
-                        <span class="input-group-text"><i class="ti ti-link"></i></span>
-                        <input type="text" class="form-control" placeholder="Enter the profile link" />
+                      <div class="col-md-5">
+                        <div class="mb-3 contact-name">
+                          <input type="text" class="form-control" placeholder="Enter the profile link" />
+                          <span class="validation-text text-danger"></span>
+                        </div>
                       </div>
-                    </div>
-                    <div class="col-md-2">
-                      <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
+                      <div class="col-md-2">
+                        <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="text-center">
                   <button id="addMoreSocial" class="btn btn-info">Add More Social</button>
                 </div>
-                <div class="text-end" style="padding: 15px;">
+                <div style="display:flex;justify-content: right;padding:15px;">
                   <button type="submit" class="btn btn-primary" style="max-width: 100px;">Submit</button>
                 </div>
               </form>
@@ -333,11 +300,9 @@
           </div>
         </div>
       </div>
-
-
     </div>
   </div>
-
+  
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>

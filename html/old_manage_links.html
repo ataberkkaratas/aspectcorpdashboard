@@ -11,75 +11,83 @@
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
   <style>
-    .drop-zone {
-      max-width: 200px;
-      height: 150px;
-      padding: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: "Quicksand", sans-serif;
-      font-weight: 500;
-      font-size: 20px;
-      cursor: pointer;
-      color: #cccccc;
-      border: 4px dashed #009578;
-      border-radius: 10px;
-    }
-
-    .drop-zone--over {
-      border-style: solid;
-    }
-
-    .drop-zone__input {
-      display: none;
-    }
-
-    .drop-zone__thumb {
-      width: 100%;
-      height: 100%;
-      border-radius: 10px;
-      overflow: hidden;
-      background-color: #cccccc;
-      background-size: cover;
+    .btn-file {
+      margin: 0;
+      padding: 0;
       position: relative;
+      z-index: 1;
     }
-
-    .drop-zone__thumb::after {
-      content: attr(data-label);
+    .btn-file__actions {
+      margin: 0;
+      padding: 0;
+    }
+    .btn-file__actions__item {
+      padding: 35px;
+      font-size: 1.5em;
+      color: #d3e0e9;
+      cursor: pointer;
+      text-decoration: none;
+      border-top: 3px dashed #d3e0e9;
+      border-left: 3px dashed #d3e0e9;
+      border-bottom: 3px dashed #d3e0e9;
+      padding: 35px 40px 45px 40px;
+    }
+    .btn-file__actions__item:first-child {
+      border-top-left-radius: 35px;
+      border-bottom-left-radius: 35px;
+    }
+    .btn-file__actions__item:last-child {
+      border-top-right-radius: 35px;
+      border-bottom-right-radius: 35px;
+      border-right: 3px dashed #d3e0e9;
+    }
+    .btn-file__actions__item:hover,
+    .btn-file__actions__item:focus {
+      color: #636b6f;
+      background-color: rgba(211, 224, 233, 0.1);
+    }
+    .btn-file__actions__item:hover--shadow,
+    .btn-file__actions__item:focus--shadow {
+      box-shadow: #d3e0e9 0 0 60px 15px;
+    }
+    .btn-file__actions__item--shadow {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+    }
+    .btn-file__actions__item--shadow::before {
+      content: " ";
+      box-shadow: #fff 0 0 60px 40px;
+      display: inline-block;
       position: absolute;
-      bottom: 0;
+      top: 50%;
       left: 0;
       width: 100%;
-      padding: 5px 0;
-      color: #ffffff;
-      background: rgba(0, 0, 0, 0.75);
-      font-size: 14px;
-      text-align: center;
+      z-index: -1;
     }
-    .delete-button-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .btn-file__preview {
+      opacity: 0.5;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1;
+      border-radius: 35px;
+      background-size: cover;
+      background-position: center;
     }
-
-    /* Adjustments for smaller screens */
-    @media (max-width: 767px) {
-      .socialform {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .col-md-2 {
-        margin-bottom: 15px;
-      }
-      
-      .delete-button-container {
-        width: 100%;
-      }
+    .form-group label.attachment {
+      width: 100%;
     }
+    .form-group label.attachment .btn-create > a,
+    .form-group label.attachment .btn-create > div {
+      margin-top: 5px;
+    }
+    .form-group label.attachment input[type="file"] {
+      display: none;
+    }
+    
   </style>
 </head>
 
@@ -166,7 +174,7 @@
                 <span class="hide-menu">By Content</span>
               </a>
             </li>
-
+          
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Edit</span>
@@ -228,7 +236,7 @@
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">My Account</p>
                     </a>
-
+                    
                     <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
@@ -267,33 +275,46 @@
                       </div>
                     </div>
                     <div class="col-md-5">
-                      <div class="col-md-12">
-                        <div class="mb-3 contact-name">
-                          <div class="container">
-                            <div class="row">
-                              <div class="col-md-12 col-md-offset-2" style="padding: 0 !important;">
-                                <div class="form-group">
-                                  <div class="drop-zone">
-                                    <span class="drop-zone__prompt">Drop file here or click to upload</span>
-                                    <input type="file" name="myFile" class="drop-zone__input">
+                      
+                    <div class="col-md-12">
+                      <div class="mb-3 contact-name">
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-12 col-md-offset-2" style="padding: 0 !important;">
+                              <div class="form-group">
+                                <label for="fileField" class="attachment">
+                                  <div class="row btn-file">
+                                    <div class="btn-file__preview"></div>
+                                    <div class="btn-file__actions">
+                                      <div class="btn-file__actions__item col-xs-12 text-center">
+                                        <div class="btn-file__actions__item--shadow">
+                                          <i class="fa fa-plus fa-lg fa-fw" aria-hidden="true"></i>
+                                          <div class="visible-xs-block"></div>
+                                          Select file
+                                        </div>
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
+                                  <input name="file" type="file" id="fileField">
+                                </label>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-2 d-flex justify-content-center align-items-center delete-button-container">
-                      <button class="btn btn-danger delete-row d-none">
-                        <i class="ti ti-trash fs-5"></i>
-                      </button>
+                    </div>
+                   
+                    <div class="col-md-2">
+                      <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
                     </div>
                   </div>
+                  <div class="col-md-2">
+                    <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
+                  </div>
                 </div>
-                
               </form>
-              <button id="addMoreSocial" class="btn btn-primary">Add More Social</button>
+                <button id="addMoreSocial" class="btn btn-primary">Add More Social</button>
             </div>
           </div>
         </div>
@@ -305,121 +326,60 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- Other script tags for Bootstrap, DataTables, and your custom scripts -->
-
+  
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      function initializeDropZone(inputElement) {
-        const dropZoneElement = inputElement.closest(".drop-zone");
-
-        dropZoneElement.addEventListener("click", (e) => {
-          inputElement.click();
-        });
-
-        inputElement.addEventListener("change", (e) => {
-          if (inputElement.files.length) {
-            updateThumbnail(dropZoneElement, inputElement.files[0]);
-          }
-        });
-
-        dropZoneElement.addEventListener("dragover", (e) => {
-          e.preventDefault();
-          dropZoneElement.classList.add("drop-zone--over");
-        });
-
-        ["dragleave", "dragend"].forEach((type) => {
-          dropZoneElement.addEventListener(type, (e) => {
-            dropZoneElement.classList.remove("drop-zone--over");
-          });
-        });
-
-        dropZoneElement.addEventListener("drop", (e) => {
-          e.preventDefault();
-
-          if (e.dataTransfer.files.length) {
-            inputElement.files = e.dataTransfer.files;
-            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
-          }
-
-          dropZoneElement.classList.remove("drop-zone--over");
-        });
-      }
-
-      function updateThumbnail(dropZoneElement, file) {
-        let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
-
-        // First time - remove the prompt
-        if (dropZoneElement.querySelector(".drop-zone__prompt")) {
-          dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    $(document).ready(function() {
+      let rowCount = 1;
+    
+      $('#addMoreSocial').on('click', function() {
+        // Clone the first row
+        var newRow = $('.socialform').first().clone();
+    
+        // Clear the cloned input fields
+        newRow.find('input').val('');
+        
+        // Clear the file input and its preview
+        newRow.find('input[type="file"]').val('');
+        newRow.find('.btn-file__preview').css('background-image', 'none');
+        
+        // Show the delete button for the new row
+        newRow.find('.delete-row').removeClass('d-none');
+    
+        // Update IDs for the new row elements
+        newRow.find('input[type="file"]').attr('id', 'fileField' + rowCount);
+        newRow.find('label[for="0"]').attr('for', 'fileField' + rowCount);
+        
+        // Append the cloned row to the specified div
+        $('#socialRows').append(newRow);
+    
+        // Increment row count
+        rowCount++;
+      });
+    
+      // Delete row when delete button is clicked
+      $(document).on('click', '.delete-row', function() {
+        // Ensure that at least one row remains
+        if ($('#socialRows').children('.socialform').length > 1) {
+          $(this).closest('.socialform').remove();
         }
-
-        // First time - there is no thumbnail element, so let's create it
-        if (!thumbnailElement) {
-          thumbnailElement = document.createElement("div");
-          thumbnailElement.classList.add("drop-zone__thumb");
-          dropZoneElement.appendChild(thumbnailElement);
-        }
-
-        thumbnailElement.dataset.label = file.name;
-
-        // Show thumbnail for image files
-        if (file.type.startsWith("image/")) {
-          const reader = new FileReader();
-
-          reader.readAsDataURL(file);
-          reader.onload = () => {
-            thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+      });
+    
+      // Handle image preview for dynamically added file inputs
+      $(document).on('change', '.attachment input[type="file"]', function(event) {
+        let attachment = $(this).closest('.attachment');
+        let preview = attachment.find('.btn-file__preview');
+        let file = event.target.files[0];
+        
+        if (file) {
+          let reader = new FileReader();
+          reader.onload = function(e) {
+            preview.css('background-image', 'url(' + e.target.result + ')');
           };
-        } else {
-          thumbnailElement.style.backgroundImage = null;
+          reader.readAsDataURL(file);
         }
-      }
-
-      document.querySelectorAll(".drop-zone__input").forEach(initializeDropZone);
-
-      $(document).ready(function () {
-        let rowCount = 1;
-
-        $('#addMoreSocial').on('click', function () {
-          // Clone the first row
-          var newRow = $('.socialform').first().clone();
-
-          // Clear the cloned input fields
-          newRow.find('input[type="text"]').val('');
-
-          // Reset the file input
-          let fileInput = newRow.find('.drop-zone__input');
-          fileInput.val('');
-
-          // Remove the thumbnail and reset the prompt
-          let dropZoneElement = newRow.find('.drop-zone');
-          dropZoneElement.find('.drop-zone__thumb').remove();
-          if (!dropZoneElement.find('.drop-zone__prompt').length) {
-            dropZoneElement.append('<span class="drop-zone__prompt">Drop file here or click to upload</span>');
-          }
-
-          // Initialize the new drop zone
-          initializeDropZone(fileInput[0]);
-
-          // Show the delete button for the new row
-          newRow.find('.delete-row').removeClass('d-none');
-
-          // Append the cloned row to the specified div
-          $('#socialRows').append(newRow);
-
-          // Increment row count
-          rowCount++;
-        });
-
-        // Delete row when delete button is clicked
-        $(document).on('click', '.delete-row', function () {
-          // Ensure that at least one row remains
-          if ($('#socialRows').children('.socialform').length > 1) {
-            $(this).closest('.socialform').remove();
-          }
-        });
       });
     });
-
+    
   </script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
