@@ -167,95 +167,228 @@
       <div class="container-fluid">
         <!--  Row 1 -->
         <div class="row">
-          <div class="col-lg-8 d-flex align-items-strech">
-            <div class="card w-100">
-              <div class="card-body">
-                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                  <div class="mb-3 mb-sm-0">
-                    <h5 class="card-title fw-semibold">Total Profile Views Overtime</h5>
-                  </div>
-                  <div>
-                    <select class="form-select">
-                      <option value="1">March 2023</option>
-                      <option value="2">April 2023</option>
-                      <option value="3">May 2023</option>
-                      <option value="4">June 2023</option>
-                    </select>
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Monthly Earnings -->
+              <div class="card">
+                <div class="card-body">
+                  <div class="row alig n-items-start">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Add Contact</h5>
+                      <h4 class="fw-semibold mb-3">6,820</h4>
+                      <div class="d-flex align-items-center pb-1">
+                        <span
+                          class="me-2 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                          <i class="ti ti-arrow-up-right text-success"></i>
+                        </span>
+                        <p class="text-dark me-1 fs-3 mb-0">+9%</p>
+                      </div>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
-                <div id="chart"></div>
+                <div id="earning"></div>
               </div>
             </div>
           </div>
-          <div class="col-lg-4">
-            <div class="row">
-              <div class="col-lg-12">
-                <!-- Yearly Breakup -->
-                <div class="card overflow-hidden">
-                  <div class="card-body p-4">
-                    <select class="form-select">
-                      <option value="1">Profile Views By Country</option>
-                      <option value="1">Profile Views By Department</option>
-                    </select>
-                    <div class="row align-items-center">
-                      <div class="col-8">
-                        <h4 class="fw-semibold mb-3">$36,358</h4>
-                        <div class="d-flex align-items-center mb-3">
-                          <span
-                            class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-up-left text-success"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
-                        <div class="d-flex align-items-center">
-                          <div class="me-4">
-                            <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                          <div>
-                            <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                            <span class="fs-2">2023</span>
-                          </div>
-                        </div>
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Social Links Breakdown -->
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Social links breakdown</h5>
+                      <br>
+                      <h4 class="fw-semibold mb-3">36</h4><br><br>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                      <div class="d-flex justify-content-center">
+                        <div id="breakup"></div>
                       </div>
-                      <div class="col-4">
-                        <div class="d-flex justify-content-center">
-                          <div id="breakup"></div>
-                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="me-4">
+                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Whatsapp</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Linkedin</span>
+                      </div>
+                      <div>
+                        <span class="round-8 bg-danger rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Facebook</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-12">
-                <!-- Monthly Earnings -->
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row alig n-items-start">
-                      <div class="col-8">
-                        <h5 class="card-title mb-9 fw-semibold">Unique Profile Views Last Month</h5>
-                        <h4 class="fw-semibold mb-3">$6,820</h4>
-                        <div class="d-flex align-items-center pb-1">
-                          <span
-                            class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-arrow-down-right text-danger"></i>
-                          </span>
-                          <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                          <p class="fs-3 mb-0">last year</p>
-                        </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Social Links Breakdown -->
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Link clicks</h5>
+                      <br>
+                      <h4 class="fw-semibold mb-3">30</h4><br><br>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                      <div class="d-flex justify-content-center">
+                        <div id="link_click"></div>
                       </div>
-                      <div class="col-4">
-                        <div class="d-flex justify-content-end">
-                          <div
-                            class="text-white bg-secondary rounded-circle p-6 d-flex align-items-center justify-content-center">
-                            <i class="ti ti-currency-dollar fs-6"></i>
-                          </div>
-                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="me-4">
+                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Link title1</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Link title2</span>
+                      </div>
+                      <div>
+                        <span class="round-8 bg-danger rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Link title3</span>
                       </div>
                     </div>
                   </div>
-                  <div id="earning"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Usage by team breakdown -->
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Usage by team breakdown</h5>
+                      <br>
+                      <h4 class="fw-semibold mb-3">50</h4><br><br>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                      <div class="d-flex justify-content-center">
+                        <div id="usage_by_team"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="me-4">
+                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Mark</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Sales</span>
+                      </div>
+                      <div>
+                        <span class="round-8 bg-danger rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">HR</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Views by device Breakdown -->
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Views by device breakdown</h5>
+                      <br>
+                      <h4 class="fw-semibold mb-3">30</h4><br><br>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                      <div class="d-flex justify-content-center">
+                        <div id="views_by_device"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="me-4">
+                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Mobile</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">Desktop</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="col-lg-12">
+              <!-- Views by location Breakdown -->
+              <div class="card overflow-hidden">
+                <div class="card-body p-4">
+                  <div class="row align-items-center">
+                    <div class="col-5">
+                      <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Views by location breakdown</h5>
+                      <br>
+                      <h4 class="fw-semibold mb-3">10</h4><br><br>
+                    </div>
+                    <div class="col-7">
+                      <select class="form-select">
+                        <option value="1">Last Week</option>
+                        <option value="1">Choose Month</option>
+                      </select>
+                      <div class="d-flex justify-content-center">
+                        <div id="views_by_location"></div>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <div class="me-4">
+                        <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">IND</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">USA</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">CAN</span>
+                      </div>
+                      <div class="me-4">
+                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
+                        <span class="fs-2">PL</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -265,93 +398,62 @@
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="card w-100">
               <div class="card-body p-4">
-                <div class="mb-4">
-                  <h5 class="card-title fw-semibold">Recent Profile Views</h5>
+                <h5 class="card-title mb-9 fw-semibold" style="font-size:16px !important">Views vs Unique views</h5>
+                <div class="d-flex justify-content-center">
+                  <canvas id="myChart"></canvas>
                 </div>
-                <ul class="timeline-widget mb-0 position-relative mb-n5">
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">04-05-2024 09:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Yash vasoya <a
-                      href="javascript:void(0)" class="text-primary d-block fw-normal">India (Android)</a>
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">20-05-2024 09:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Brijesh vasoya <a
-                      href="javascript:void(0)" class="text-primary d-block fw-normal">USA (IOS)</a>
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">04-05-2024 10:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Akshay vasoya <a
-                      href="javascript:void(0)" class="text-primary d-block fw-normal">Canada (Android)</a>
-                    </div>
-                  </li>
-                  <li class="timeline-item d-flex position-relative overflow-hidden">
-                    <div class="timeline-time text-dark flex-shrink-0 text-end">04-05-2024 09:30</div>
-                    <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                      <span class="timeline-badge border-2 border border-primary flex-shrink-0 my-8"></span>
-                      <span class="timeline-badge-border d-block flex-shrink-0"></span>
-                    </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">Yash vasoya <a
-                      href="javascript:void(0)" class="text-primary d-block fw-normal">India (Android)</a>
-                    </div>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
           <div class="col-lg-8 d-flex align-items-stretch">
             <div class="card w-100">
-              <div class="card-body p-4">
-                <h5 class="card-title fw-semibold mb-4">Top Performers</h5>
-                <div class="table-responsive">
-                  <table class="table text-nowrap mb-0 align-middle">
-                    <thead class="text-dark fs-4">
-                      <tr>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Username</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Last Name</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Total Views In Last Month</h6>
-                        </th>
-                        <th class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0">Unique Views in Last Month</h6>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="border-bottom-0">
-                            <h6 class="fw-semibold mb-1">Sunil</h6>                      
-                        </td>
-                        <td class="border-bottom-0">
-                          <p class="mb-0 fw-normal">Elite</p>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">2.5M</h6>
-                        </td>
-                        <td class="border-bottom-0">
-                          <h6 class="fw-semibold mb-0 fs-4">1.2M</h6>
-                        </td>
-                      </tr>                      
-                    </tbody>
-                  </table>
+              <div class="card-body">
+                <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
+                  <div class="mb-3 mb-sm-0">
+                    <button type="button" class="btn btn-primary m-1">Views by department</button>
+                    <button type="button" class="btn btn-outline-primary m-1">Conversion rate over time</button>
+                  </div>
+                  <select class="form-select w-auto">
+                    <option value="1">Last Week</option>
+                    <option value="1">Choose Month</option>
+                  </select>
+                </div>
+                <div class="row align-items-center">
+                  <div class="col-md-8">
+                    <div id="chart" class="mx-n6"></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="hstack mb-4 pb-1">
+                      <div class="p-8 bg-primary-subtle rounded-1 me-3 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-grid-dots text-primary fs-6"></i>
+                      </div>
+                      <div>
+                        <h4 class="mb-0 fs-7 fw-semibold">$63,489.50</h4>
+                        <p class="fs-3 mb-0">Total Earnings</p>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="d-flex align-items-baseline mb-4">
+                        <span class="round-8 text-bg-primary rounded-circle me-6"></span>
+                        <div>
+                          <p class="fs-3 mb-1">Earnings this month</p>
+                          <h6 class="fs-5 fw-semibold mb-0">$48,820</h6>
+                        </div>
+                      </div>
+                      <div class="d-flex align-items-baseline mb-4 pb-1">
+                        <span class="round-8 text-bg-secondary rounded-circle me-6"></span>
+                        <div>
+                          <p class="fs-3 mb-1">Expense this month</p>
+                          <h6 class="fs-5 fw-semibold mb-0">$26,498</h6>
+                        </div>
+                      </div>
+                      <div>
+                        <button class="btn btn-primary w-100">
+                          View Full Report
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -360,6 +462,8 @@
       </div>
     </div>
   </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>

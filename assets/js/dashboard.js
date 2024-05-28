@@ -159,6 +159,223 @@ $(function () {
   var chart = new ApexCharts(document.querySelector("#breakup"), breakup);
   chart.render();
 
+  // =====================================
+  // link_click
+  // =====================================
+  var link_click = {
+    color: "#adb5bd",
+    series: [38, 40, 25],
+    labels: ["link title1", "link title2", "link title3"],
+    chart: {
+      width: 180,
+      type: "donut",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    plotOptions: {
+      pie: {
+        startAngle: 0,
+        endAngle: 360,
+        donut: {
+          size: '75%',
+        },
+      },
+    },
+    stroke: {
+      show: false,
+    },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+    legend: {
+      show: false,
+    },
+    colors: ["#5D87FF", "#ecf2ff", "#F9F9FD"],
+
+    responsive: [
+      {
+        breakpoint: 991,
+        options: {
+          chart: {
+            width: 150,
+          },
+        },
+      },
+    ],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#link_click"), link_click);
+  chart.render();
+  
+  // =====================================
+  // usage_by_team
+  // =====================================
+  var usage_by_team = {
+    color: "#adb5bd",
+    series: [10, 25, 15],
+    labels: ["Mark", "Sales", "HR"],
+    chart: {
+      width: 180,
+      type: "donut",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    plotOptions: {
+      pie: {
+        startAngle: 0,
+        endAngle: 360,
+        donut: {
+          size: '75%',
+        },
+      },
+    },
+    stroke: {
+      show: false,
+    },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+    legend: {
+      show: false,
+    },
+    colors: ["#5D87FF", "#ecf2ff", "#FA896B"],
+
+    responsive: [
+      {
+        breakpoint: 991,
+        options: {
+          chart: {
+            width: 150,
+          },
+        },
+      },
+    ],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#usage_by_team"), usage_by_team);
+  chart.render();
+
+  // =====================================
+  // views_by_device
+  // =====================================
+  var views_by_device = {
+    color: "#adb5bd",
+    series: [10, 25, 15],
+    labels: ["Mark", "Sales", "HR"],
+    chart: {
+      width: 180,
+      type: "donut",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    plotOptions: {
+      pie: {
+        startAngle: 0,
+        endAngle: 360,
+        donut: {
+          size: '75%',
+        },
+      },
+    },
+    stroke: {
+      show: false,
+    },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+    legend: {
+      show: false,
+    },
+    colors: ["#5D87FF", "#ecf2ff", "#FA896B"],
+
+    responsive: [
+      {
+        breakpoint: 991,
+        options: {
+          chart: {
+            width: 150,
+          },
+        },
+      },
+    ],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#views_by_device"), views_by_device);
+  chart.render();
+
+
+  // =====================================
+  // views_by_location
+  // =====================================
+  var views_by_location = {
+    color: "#adb5bd",
+    series: [10, 25, 15, 12],
+    labels: ["IND", "USA", "CAN", "PL"],
+    chart: {
+      width: 180,
+      type: "donut",
+      fontFamily: "Plus Jakarta Sans', sans-serif",
+      foreColor: "#adb0bb",
+    },
+    plotOptions: {
+      pie: {
+        startAngle: 0,
+        endAngle: 360,
+        donut: {
+          size: '75%',
+        },
+      },
+    },
+    stroke: {
+      show: false,
+    },
+
+    dataLabels: {
+      enabled: false,
+    },
+
+    legend: {
+      show: false,
+    },
+    colors: ["#5D87FF", "#ecf2ff", "#FA896B","#CD96C8"],
+
+    responsive: [
+      {
+        breakpoint: 991,
+        options: {
+          chart: {
+            width: 150,
+          },
+        },
+      },
+    ],
+    tooltip: {
+      theme: "dark",
+      fillSeriesColor: false,
+    },
+  };
+
+  var chart = new ApexCharts(document.querySelector("#views_by_location"), views_by_location);
+  chart.render();
+
 
 
   // =====================================
@@ -209,3 +426,32 @@ $(function () {
   };
   new ApexCharts(document.querySelector("#earning"), earning).render();
 })
+
+
+var ctx = document.getElementById("myChart").getContext('2d');
+
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: 'Views', // Name the series
+            data: [8,80,40,10,40,50], // Specify the data values array
+            fill: false,
+            borderColor: '#2196f3', // Add custom color border (Line)
+            backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+            borderWidth: 3 // Specify bar border width
+        },
+                  {
+            label: 'Unique Views', // Name the series
+            data: [15,90,50,60,20,60], // Specify the data values array
+            fill: false,
+            borderColor: '#4CAF50', // Add custom color border (Line)
+            backgroundColor: '#4CAF50', // Add custom color background (Points and Fill)
+            borderWidth: 3 // Specify bar border width
+        }]
+    },
+    options: {
+      responsive: true, // Instruct chart js to respond nicely.
+      maintainAspectRatio: false, // Add to prevent default behaviour of full-width/height 
+    }
+});
