@@ -4,9 +4,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add Bulk Users</title>
+  <title>Add User</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    .input-group-text {
+      width: 45px;
+      justify-content: center;
+    }
+
+    .input-group-text i {
+      font-size: 18px;
+    }
+
+    .mb-3 .form-control,
+    .mb-3 .form-select {
+      height: calc(2.25rem + 2px);
+    }
+
+    .btn-primary {
+      max-width: 100px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-end {
+      text-align: end;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+  </style>
+
+  </style>
 </head>
 
 <body>
@@ -92,7 +125,7 @@
                 <span class="hide-menu">By Content</span>
               </a>
             </li>
-          
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Edit</span>
@@ -154,7 +187,7 @@
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">My Account</p>
                     </a>
-                    
+
                     <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
@@ -165,17 +198,198 @@
       </header>
       <!--  Header End -->
       <div class="container-fluid">
-        <h3> Page not found</h3>
+        <div class="container-fluid">
+          <h5 class="card-title fw-semibold mb-4 text-center">Add Bulk Users</h5>
+          <div class="card">
+            <div class="card-body">
+              <form id="bulkUserForm">
+                <div class="row justify-content-center mb-3">
+                  <div class="col-md-6">
+                    <label for="csvFileToUpload" class="form-label">Upload CSV File</label>
+                    <input type="file" class="form-control" name="csvFileToUpload" id="csvFileToUpload">
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="previewSection" style="display: none;">
+            <h5 class="card-title fw-semibold mb-4 text-center">Bulk User Preview</h5>
+            <div class="card">
+              <div class="card-body">
+                <div id="userPreviews"></div>
+                <div class="text-end" style="padding: 15px;">
+                  <button id="bulkUserSubmit" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+
     </div>
   </div>
+
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
-  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
-  <script src="../assets/js/dashboard.js"></script>
+  <<script>
+    $(document).ready(function () {
+      $('#bulkUserForm').submit(function (e) {
+        e.preventDefault();
+        // Process CSV file upload here and display preview
+        // Assume you have user data in an array of objects called `userData`
+        var userData = [
+          {
+            name: 'John',
+            lastName: 'Doe',
+            email: 'john.doe@example.com',
+            position: 'Developer',
+            officeNumber: '123456789',
+            phoneNumber: '987654321',
+            company: 'ABC Inc',
+            address: '123 Main St',
+            useWhatsapp: true,
+            socialLinks: [
+              { platform: 'Linkedin', link: 'https://linkedin.com/in/johndoe' },
+              { platform: 'Instagram', link: 'https://instagram.com/johndoe' }
+            ]
+          },
+          // Add more user data as needed
+        ];
+
+        // Display user previews
+        $('#userPreviews').empty(); // Clear previous previews
+        userData.forEach(function (user) {
+          var userPreview = `
+            <div class="row justify-content-center">
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Name" value="${user.name}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-user"></i></span>
+                  <input type="text" class="form-control" placeholder="Last Name" value="${user.lastName}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-mail"></i></span>
+                  <input type="text" class="form-control" placeholder="Email" value="${user.email}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-briefcase"></i></span>
+                  <input type="text" class="form-control" placeholder="Position" value="${user.position}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-phone"></i></span>
+                  <input type="text" class="form-control" placeholder="Office Number" value="${user.officeNumber}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-device-mobile"></i></span>
+                  <input type="text" id="c-phone" class="form-control" placeholder="Phone Number" value="${user.phoneNumber}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-building"></i></span>
+                  <input type="text" class="form-control" placeholder="Company" value="${user.company}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="ti ti-map-pins"></i></span>
+                  <input type="text" class="form-control" placeholder="Address" value="${user.address}" />
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" ${user.useWhatsapp ? 'checked' : ''}>
+                  <label class="form-check-label" for="exampleCheck1">Use Whatsapp</label>
+                </div>
+              </div>
+              <hr>
+              <h5 class="text-center">Add Socials</h5>
+              <div class="add-social-content"></div>
+              <div id="socialRows">
+          `;
+
+          user.socialLinks.forEach(function (link) {
+            userPreview += `
+              <div class="row socialform mb-3 justify-content-center">
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="ti ti-world"></i></span>
+                    <select class="form-select">
+                      <option value="">---------</option>
+                      <option value="Linkedin" ${link.platform === 'Linkedin' ? 'selected' : ''}>Linkedin</option>
+                      <option value="Instagram" ${link.platform === 'Instagram' ? 'selected' : ''}>Instagram</option>
+                      <!-- Add more options as needed -->
+                    </select>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="ti ti-link"></i></span>
+                    <input type="text" class="form-control" placeholder="Enter the profile link" value="${link.link}" />
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <button class="btn btn-danger delete-row d-none"><i class="ti ti-trash fs-5"></i></button>
+                </div>
+              </div>
+            `;
+          });
+
+          userPreview += `
+              </div>
+            </div>
+          `;
+
+          $('#userPreviews').append(userPreview);
+        });
+
+        // Show the preview section
+        $('#previewSection').show();
+      });
+
+      // Handle bulk user submission
+      $('#bulkUserSubmit').click(function () {
+        // Process bulk user submission here
+        // For example, you can send the user data to the server
+        console.log('Bulk user submission');
+      });
+
+      // Add more social links
+      $(document).on('click', '#addMoreSocial', function (e) {
+        e.preventDefault();
+        var newRow = $('.socialform').first().clone();
+        newRow.find('input').val('');
+        newRow.find('select').val('');
+        $('#socialRows').append(newRow);
+      });
+
+      // Delete social link row
+      $(document).on('click', '.delete-row', function (e) {
+        e.preventDefault();
+        $(this).closest('.socialform').remove();
+      });
+    });
+  </script>
 </body>
 
 </html>

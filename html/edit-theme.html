@@ -4,9 +4,42 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Theme</title>
+  <title>Edit theme</title>
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <style>
+    .input-group-text {
+      width: 45px;
+      justify-content: center;
+    }
+
+    .input-group-text i {
+      font-size: 18px;
+    }
+
+    .mb-3 .form-control,
+    .mb-3 .form-select {
+      height: calc(2.25rem + 2px);
+    }
+
+    .btn-primary {
+      max-width: 100px;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .text-end {
+      text-align: end;
+    }
+
+    .justify-content-center {
+      justify-content: center;
+    }
+  </style>
+
+  </style>
 </head>
 
 <body>
@@ -92,7 +125,7 @@
                 <span class="hide-menu">By Content</span>
               </a>
             </li>
-          
+
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Edit</span>
@@ -154,7 +187,7 @@
                       <i class="ti ti-mail fs-6"></i>
                       <p class="mb-0 fs-3">My Account</p>
                     </a>
-                    
+
                     <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
@@ -165,17 +198,164 @@
       </header>
       <!--  Header End -->
       <div class="container-fluid">
-        <h3> Page not found</h3>
+        <div class="container-fluid">
+          <h5 class="card-title fw-semibold mb-4 text-center">Edit theme</h5>
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="row justify-content-center mb-3">
+                  <div class="col-md-6">
+                    <label for="fileToUpload" class="form-label">Image</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                </div>
+                <div class="row justify-content-center">
+                  <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-article"></i></span>
+                      <input type="text" class="form-control" placeholder="Title" />
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-file-description"></i></span>
+                      <input type="text" class="form-control" placeholder="Description" />
+                    </div>
+                  </div>
+                  
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp text color" />
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" name="corp_primary_color" placeholder="Corp primary color">
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp secondary color" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp primary bg color" />
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" name="corp_primary_bg_color2" placeholder="Corp primary bg color2">
+                    </div>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp shadow color" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp card gradient 1" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" name="corp_card_gradient_2" placeholder="Corp card gradient 2">
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp card gradient mid" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp card gradient direction" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp link gradient 1" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" name="corp_link_gradient_2" placeholder="Corp link gradient 2">
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Corp link gradient mid" />
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="ti ti-pencil"></i></span>
+                      <input type="text" class="form-control" placeholder="Direction" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Corp bg image</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Corp logo</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Wallpaper image</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Email signature</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Cover (m)</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <label for="fileToUpload" class="form-label">Cover (d)</label>
+                    <input type="file" class="form-control" name="fileToUpload" id="fileToUpload">
+                  </div>
+                </div>
+                <div class="text-end" style="padding: 15px;">
+                  <button type="submit" class="btn btn-primary" style="max-width: 100px;">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
+
+
     </div>
   </div>
+
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
-  <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
-  <script src="../assets/js/dashboard.js"></script>
+
 </body>
 
 </html>
