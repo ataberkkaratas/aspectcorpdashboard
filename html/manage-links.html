@@ -8,8 +8,8 @@
   <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" />
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/themes/base/jquery-ui.min.css" />
   <style>
     .drop-zone {
       max-width: 200px;
@@ -79,6 +79,9 @@
       .delete-button-container {
         width: 100%;
       }
+    }
+    .socialform{
+      cursor: all-scroll;
     }
   </style>
 </head>
@@ -244,7 +247,7 @@
           <div class="add-contact-box">
             <div class="add-contact-content">
               <form id="EditSocialModalTitle">
-                <div id="socialRows">
+                <div id="socialRows" class="sortable">
                   <div class="row socialform">
                     <div class="col-md-5">
                       <div class="col-md-12">
@@ -261,12 +264,6 @@
                       <div class="col-md-12">
                         <div class="mb-3 contact-name">
                           <input type="text" class="form-control" placeholder="Enter Title" />
-                          <span class="validation-text text-danger"></span>
-                        </div>
-                      </div>
-                      <div class="col-md-12">
-                        <div class="mb-3 contact-name">
-                          <input type="text" class="form-control" placeholder="Enter Order no." />
                           <span class="validation-text text-danger"></span>
                         </div>
                       </div>
@@ -303,7 +300,6 @@
                     <hr>
                   </div>
                 </div>
-                
               </form>
               <button id="addMoreSocial" class="btn btn-primary">Add More Social</button>
             </div>
@@ -314,9 +310,8 @@
   </div>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <!-- Other script tags for Bootstrap, DataTables, and your custom scripts -->
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.3/jquery-ui.min.js" ></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -420,6 +415,7 @@
 
           // Increment row count
           rowCount++;
+          initializeSortable();
         });
 
         // Delete row when delete button is clicked
@@ -428,12 +424,17 @@
           if ($('#socialRows').children('.socialform').length > 1) {
             $(this).closest('.socialform').remove();
           }
+          initializeSortable();
         });
+
+        function initializeSortable() {
+          $("#socialRows").sortable();
+        }
+        initializeSortable();
       });
     });
 
   </script>
-  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
